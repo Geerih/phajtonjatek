@@ -248,9 +248,10 @@ class Jatekosok:
         self.repulo1turtle.pendown()
 
     def __init__(self):
-        self.repulo1()
+        self.kocsi1()
         self.repulo1turtle._delay(0)
         self.repulo1turtle.speed(0)
         self.scr.mainloop()
+
 
 Jatekosok()

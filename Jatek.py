@@ -1,5 +1,6 @@
 from turtle import Screen
 from turtle import Turtle
+import pygame
 import tkinter
 
 class Game:
@@ -8,8 +9,9 @@ class Game:
         screen = Screen()
         turtle = Turtle()
         root = tkinter.Tk()
-        root.overrideredirect(True)
-        root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
+        pygame.init()
+        pygame.display.set_caption('Car Simulator 2077')
+        image = pygame.image.load(r'C:\Users\Csaby\Documents\GitHub\kancsiazIsten\LOL.png')     
         screen.mainloop()
 
 Game()
