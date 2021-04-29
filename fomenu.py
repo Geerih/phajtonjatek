@@ -13,7 +13,7 @@ class Game:
     
     root =  Tk()
     root.geometry("1920x1080")
-    bg = PhotoImage(file="C:\\Users\\Csaby\\Documents\\GitHub\\kancsiazIsten\\img\\kezdokep.png")
+    bg = PhotoImage(file="img\\kezdokep.png")
     my_label = Label(root, image=bg)
     my_label.place(x=0, y=0, relwidth=1, relheight=1)
     root.rowconfigure(4, weight=1)
