@@ -12,6 +12,7 @@ class Game:
 
     
     root =  Tk()
+    root.iconbitmap("img/Icon.ico")
     root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
     bg = PhotoImage(file="img\\kezdokep.png")
     my_label = Label(root, image=bg)
