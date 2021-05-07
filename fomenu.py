@@ -12,7 +12,7 @@ class Game:
 
     
     root =  Tk()
-    root.geometry("1920x1080")
+    root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
     bg = PhotoImage(file="img\\kezdokep.png")
     my_label = Label(root, image=bg)
     my_label.place(x=0, y=0, relwidth=1, relheight=1)
@@ -33,10 +33,10 @@ class Game:
     exit = Button(text='Exit', fg="Red", width=40, height=6, bd=0, bg="#fff", cursor="hand2", command=root.destroy)
     exit.grid(row=3, column=0, padx=1265, pady=20)
 
-    jatek.place(x=1920 / 100 * 65.78125, y=1080 / 100 * 37.962)
-    credits.place(x=1920 / 100 * 65.78125, y=1080 / 100 * 51.481)
-    options.place(x=1920 / 100 * 65.78125, y=1080 / 100 * 65.370)
-    exit.place(x=1920 / 100 * 65.78125, y=1080 / 100 * 79.629)
+    jatek.place(x=root.winfo_screenwidth() / 100 * 65.78125, y=1080 / 100 * 37.962)
+    credits.place(x=root.winfo_screenwidth() / 100 * 65.78125, y=1080 / 100 * 51.481)
+    options.place(x=root.winfo_screenwidth() / 100 * 65.78125, y=1080 / 100 * 65.370)
+    exit.place(x=root.winfo_screenwidth() / 100 * 65.78125, y=1080 / 100 * 79.629)
     root.mainloop()
 
 Game()
