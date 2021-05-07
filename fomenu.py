@@ -19,7 +19,7 @@ class Game:
     root.rowconfigure(4, weight=1)
     root.configure(bg="black")
     root.resizable(0, 0)
-    root.title("Race 2021")
+    root.title("Pro Street Racer")
 
     jatek = Button(text="Play", fg="black", width=40, height=6, bd=0, bg="#fff", cursor="hand2", command=lambda: btn_click(0))
     jatek.grid(row=0, column=0, padx=1265, pady=20)
