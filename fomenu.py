@@ -34,10 +34,10 @@ class Game:
     exit = Button(text='Exit', fg="Red", width=40, height=6, bd=0, bg="#fff", cursor="hand2", command=root.destroy)
     exit.grid(row=3, column=0, padx=1265, pady=20)
 
-    jatek.place(x=root.winfo_screenwidth() / 100 * 65.78125, y=1080 / 100 * 37.962)
-    credits.place(x=root.winfo_screenwidth() / 100 * 65.78125, y=1080 / 100 * 51.481)
-    options.place(x=root.winfo_screenwidth() / 100 * 65.78125, y=1080 / 100 * 65.370)
-    exit.place(x=root.winfo_screenwidth() / 100 * 65.78125, y=1080 / 100 * 79.629)
+    jatek.place(x=root.winfo_screenwidth() / 100 * 65.78125, y=root.winfo_screenheight() / 100 * 37.962)
+    credits.place(x=root.winfo_screenwidth() / 100 * 65.78125, y=root.winfo_screenheight() / 100 * 51.481)
+    options.place(x=root.winfo_screenwidth() / 100 * 65.78125, y=root.winfo_screenheight() / 100 * 65.370)
+    exit.place(x=root.winfo_screenwidth() / 100 * 65.78125, y=root.winfo_screenheight() / 100 * 79.629)
     root.mainloop()
 
 Game()
