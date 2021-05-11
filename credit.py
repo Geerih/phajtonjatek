@@ -15,6 +15,11 @@ class Credit:
     exit = Button(text='Exit', fg="Red", width=20, height=4, bd=0, bg="#fff", cursor="hand2", command=root.destroy)
     exit.grid(row=3, column=0, padx=1265, pady=20)
 
+    text = StringVar()
+    text.set("asdasd/nasd")
+    kiiras = Label(root, text="asddas/nasdasd")
+    kiiras.place(x=300, y=300)
+
     exit.place(x=900, y=630)
     root.mainloop()
 
