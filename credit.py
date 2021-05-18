@@ -3,8 +3,8 @@ from tkinter import *
 class Credit:
 
     root = Tk()
-    root.geometry("1080x720")
-    bg = PhotoImage(file="img\\credit_hatter.png")
+    root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
+    bg = PhotoImage(file="img\\credit_kep.png")
     my_label = Label(root, image=bg)
     my_label.place(x=0, y=0, relwidth=1, relheight=1)
     root.rowconfigure(4, weight=1)
@@ -16,8 +16,8 @@ class Credit:
     exit.grid(row=3, column=0, padx=1265, pady=20)
 
     text = StringVar()
-    text.set("asdasd/nasd")
-    kiiras = Label(root, text="asddas/nasdasd")
+    text.set("Sziasztok gyerekik/nasd")
+    kiiras = Label(root, text="Sziasztok gyerekik/nasdasd")
     kiiras.place(x=300, y=300)
 
     exit.place(x=900, y=630)
