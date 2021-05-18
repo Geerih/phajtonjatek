@@ -1,5 +1,3 @@
-from turtle import Screen
-from turtle import Turtle
 import pygame
 import tkinter
 
