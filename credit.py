@@ -16,18 +16,10 @@ class Credit:
     exit = Button(text='Exit', fg="Red", width=45, height=6, bd=0, bg="#fff", cursor="hand2", command=root.destroy)
     exit.grid(row=3, column=0, padx=1265, pady=20)
 
+    keszitok.set("Készítők/Fejlesztők")
     text = StringVar()
-    text.set("Készítők/Fejlesztők:"
-             "Troznai Roland"
-             "Németh Csaba Bence"
-             "Zsebők Dávid"
-             "Oláh Gergő")
-    kiiras = Label(root, text="Készítők/Fejlesztők:"
-             "Troznai Roland"
-             "Németh Csaba Bence"
-             "Zsebők Dávid"
-             "Oláh Gergő")
-    kiiras.place(x=300, y=300)
+    keszitok = Label(root, text="Készítők/Fejlesztők:")
+    keszitok.place(x=300, y=300)
 
     exit.place(x=1500, y=900)
     root.mainloop()
