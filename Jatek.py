@@ -1,15 +1,8 @@
+import pgzrun
 import pygame
-import tkinter
+from n_mygameworld import *
+from n_staractor import StarActor
 
-class Game:
-
-    def __init__(self):
-        screen = Screen()
-        turtle = Turtle()
-        root = tkinter.Tk()
-        pygame.init()
-        pygame.display.set_caption('Car Simulator 2077')
-        image = pygame.image.load(r'C:\Users\Csaby\Documents\GitHub\kancsiazIsten\LOL.png')     
-        screen.mainloop()
-
-Game()
+gamestage = MyStage()
+m1 = MyActor(image="kocsi_piros.png", pos=(0, 0), anchor=(0, 0))
+m1.set_width(30, 30)
