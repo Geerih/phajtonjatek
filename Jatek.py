@@ -1,15 +1,40 @@
+import pgzrun
 import pygame
-import tkinter
+from n_mygameworld import *
+from n_staractor import StarActor
 
-class Game:
 
-    def __init__(self):
-        screen = Screen()
-        turtle = Turtle()
-        root = tkinter.Tk()
-        pygame.init()
-        pygame.display.set_caption('Car Simulator 2077')
-        image = pygame.image.load(r'C:\Users\Csaby\Documents\GitHub\kancsiazIsten\LOL.png')     
-        screen.mainloop()
+def keydownlistener(key, mod, unicode, keys):
+    if key == keys.LEFT:
+        animate(car1, pos=(car1.pos[0] - 10, car1.pos[1]), duration=0.1)
+    if key == keys.RIGHT:
+        animate(car1, pos=(car1.pos[0] + 10, car1.pos[1]), duration=0.1)
 
-Game()
+
+gamestage = MyStage()
+
+
+def on_key_left(key, mod, unicode):
+    print("LEFT: " + str(key) + " " + str(mod) + " " + str(unicode))
+    gamestage.on_key_down(key, mod, unicode)
+
+
+def on_key_right(key, mod):
+    print("RIGHT: " + str(key) + " " + str(mod))
+    gamestage.on_key_up(key, mod)
+
+
+for i in range(100):
+    gamestage.add_actor(StarActor())
+
+
+def update(dt):
+    gamestage.update(dt)
+
+
+car1 = MyActor(image="kocsi_kek.png", pos=(0, 0), anchor=(0, 0))
+car1.set_width(30, 30)
+
+gamestage.add_actor(car1)
+
+pgzrun.go()
