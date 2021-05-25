@@ -1,5 +1,6 @@
 import tkinter.font
 from tkinter import *
+import
 
 class Game:
     def game_click():
@@ -13,9 +14,9 @@ class Game:
 
     
     root =  Tk()
-    root.iconbitmap("image/Icon.ico")
+    root.iconbitmap("images/Icon.ico")
     root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
-    bg = PhotoImage(file="image\\kezdokep.png")
+    bg = PhotoImage(file="images\\kezdokep.png")
     my_label = Label(root, image=bg)
     my_label.place(x=0, y=0, relwidth=1, relheight=1)
     root.rowconfigure(4, weight=1)
