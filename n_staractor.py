@@ -7,7 +7,7 @@ class StarActor(MyActor):
     def __init__(self):
         r = Random()
         self.__speed = (r.random() - 0.5) * 50
-        super().__init__('kocsi_kek.png', (r.randint(0, 600), r.randint(0, 600)))
+        super().__init__('seat_ibiza_19tdi.png', (r.randint(0, 600), r.randint(0, 600)))
         # self.setsize(20, 20)
         self.set_on_mouse_down_listener(self.click)
 
