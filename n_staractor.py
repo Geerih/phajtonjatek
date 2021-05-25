@@ -4,11 +4,6 @@ from n_mygameworld import *
 class StarActor(MyActor):
     __speed: float
 
-    def click(self, pos, btn):
-        #self.remove_from_stage()
-        #self.set_size(20, 20)
-        #self.set_image("m_jerry.gif")
-
     def __init__(self):
         r = Random()
         self.__speed = (r.random() - 0.5) * 50
