@@ -275,6 +275,20 @@ class MyStage:
             if isinstance(obj, MyActor):
                 obj.on_key_up(key, mod)
 
+    def on_key_left(self, key, mod, unicode):
+        if self._on_key_left_listener != 0:
+            self._on_key_left_listener(key, mod, unicode)
+        for obj in self.actors:
+            if isinstance(obj, MyActor):
+                obj.on_key_left(key, mod, unicode)
+
+    def on_key_right(self, key, mod):
+        if self._on_key_right_listener != 0:
+            self._on_key_right_listener(key, mod)
+        for obj in self.actors:
+            if isinstance(obj, MyActor):
+                obj.on_key_right(key, mod)
+
     def set_on_key_down_listener(self, func):
         self._on_key_down_listener = func
 
@@ -304,3 +318,15 @@ class MyStage:
 
     def set_on_mouse_move_listener(self, func):
         self._on_mouse_move_listener = func
+
+    def set_on_key_left_listener(self, func):
+        self._on_key_down_listener = func
+
+    def set_on_key_right_listener(self, func):
+        self._on_key_up_listener = func
+
+    def remove_on_key_left_listener(self):
+        self._on_key_down_listener = 0
+
+    def remove_on_key_right_listener(self):
+        self._on_key_up_listener = 0
