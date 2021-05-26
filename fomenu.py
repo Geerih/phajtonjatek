@@ -1,50 +1,32 @@
-import tkinter.font
-from tkinter import *
-import
+from n_mygameworld import *
+import pgzrun
+import tkinter as tk
 
-class Game:
-    def game_click():
-        print("Megy")
-    
-    def credits_click():
-        print("creditek")
-    
-    def options_click():
-        print("beállítások")
+menustage = MyStage()
 
-    
-    root =  Tk()
-    root.iconbitmap("images/Icon.ico")
-    root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
-    bg = PhotoImage(file="images\\kezdokep.png")
-    my_label = Label(root, image=bg)
-    my_label.place(x=0, y=0, relwidth=1, relheight=1)
-    root.rowconfigure(4, weight=1)
-    root.configure(bg="black")
-    root.resizable(0, 0)
-    root.title("Pro Street Racer")
-    buttonfont = tkinter.font.Font(size=30, weight="bold")
+# screen
+root = tk.Tk()
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+WIDTH = screen_width
+HEIGHT = screen_height
+DISPLAYSURF = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
-    jatek = Button(text="Play", fg="black", width=13, height=1, bd=0, bg="#f1f5ff", cursor="hand2", command=lambda: btn_click(0))
-    jatek.grid(row=0, column=0, padx=1265, pady=20)
-    jatek['font'] = buttonfont
+# actorok
+m1 = MyActor(image="kezdokep.png", pos=(0, 0), anchor=(0, 0))
+m1.set_size(width=screen_width, height=screen_height)
+menustage.add_actor(m1)
 
-    credits = Button(text="Credits", fg="black", width=13, height=1, bd=0, bg="#f1f5ff", cursor="hand2", command=credits_click())
-    credits.grid(row=1, column=400, padx=1265, pady=20)
-    credits['font'] = buttonfont
+# label
 
-    options = Button(text="Options", fg="black", width=13, height=1, bd=0, bg="#f1f5ff", cursor="hand2", command=lambda: btn_click(0))
-    options.grid(row=2, column=0, padx=1265, pady=20)
-    options['font'] = buttonfont
 
-    exit = Button(text='Exit', fg="Red", width=13, height=1, bd=0, bg="#f1f5ff", cursor="hand2", command=root.destroy)
-    exit.grid(row=3, column=0, padx=1265, pady=20)
-    exit['font'] = buttonfont
 
-    jatek.place(x=root.winfo_screenwidth() / 100 * 64.739583, y=root.winfo_screenheight() / 100 * 38.962)
-    credits.place(x=root.winfo_screenwidth() / 100 * 64.739583, y=root.winfo_screenheight() / 100 * 52.481)
-    options.place(x=root.winfo_screenwidth() / 100 * 64.739583, y=root.winfo_screenheight() / 100 * 66.370)
-    exit.place(x=root.winfo_screenwidth() / 100 * 64.739583, y=root.winfo_screenheight() / 100 * 80.629)
-    root.mainloop()
+def update(dt):
+    menustage.update(dt)
 
-Game()
+
+def draw():
+    menustage.draw()
+
+
+pgzrun.go()
