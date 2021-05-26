@@ -1,27 +1,76 @@
-import tkinter
-from tkinter import *
+import self as self
 
-class Credit:
+from n_mygameworld import *
+import pgzrun
+import tkinter as tk
 
-    root = Tk()
-    root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
-    bg = PhotoImage(file="images\\credit.png")
-    my_label = Label(root, image=bg)
-    my_label.place(x=0, y=0, relwidth=0.5, relheight=0.5)
-    root.rowconfigure(4, weight=1)
-    root.configure(bg="black")
-    root.resizable(0, 0)
-    root.title("Credit")
+menustage = MyStage()
 
-    exit = Button(text='Exit', fg="Red", width=45, height=6, bd=0, bg="#fff", cursor="hand2", command=root.destroy)
-    exit.grid(row=3, column=0, padx=1265, pady=20)
+root = tk.Tk()
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+WIDTH = screen_width
+HEIGHT = screen_height
+DISPLAYSURF = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
-    keszitok.set("Készítők/Fejlesztők")
-    text = StringVar()
-    keszitok = Label(root, text="Készítők/Fejlesztők:")
-    keszitok.place(x=300, y=300)
+m1 = MyActor(image="credit.png", pos=(0, 0), anchor=(0, 0))
+m1.set_size(width=screen_width, height=screen_height)
+menustage.add_actor(m1)
 
-    exit.place(x=1500, y=900)
-    root.mainloop()
+# label
 
-Credit()
+
+
+def update(dt):
+    menustage.update(dt)
+
+
+def draw():
+    menustage.draw()
+
+text1: MyButton = MyButton()
+text1.set_x(400)
+text1.set_y(80)
+text1.set_fontsize(80)
+text1.set_color(b=255, g=255, r=255)
+text1.set_rotation(0)
+text1.set_text("Fejlesztők / Készítők:")
+menustage.add_actor(text1)
+
+text2: MyButton = MyButton()
+text2.set_x(540)
+text2.set_y(200)
+text2.set_fontsize(40)
+text2.set_color(b=255, g=255, r=255)
+text2.set_rotation(0)
+text2.set_text("Troznai Roland")
+menustage.add_actor(text2)
+
+text3: MyButton = MyButton()
+text3.set_x(540)
+text3.set_y(250)
+text3.set_fontsize(40)
+text3.set_color(b=255, g=255, r=255)
+text3.set_rotation(0)
+text3.set_text("Németh Csaba Bence")
+menustage.add_actor(text3)
+
+text4: MyButton = MyButton()
+text4.set_x(540)
+text4.set_y(300)
+text4.set_fontsize(40)
+text4.set_color(b=255, g=255, r=255)
+text4.set_rotation(0)
+text4.set_text("Zsebők Dávid")
+menustage.add_actor(text4)
+
+text5: MyButton = MyButton()
+text5.set_x(540)
+text5.set_y(350)
+text5.set_fontsize(40)
+text5.set_color(b=255, g=255, r=255)
+text5.set_rotation(0)
+text5.set_text("Oláh Gergő")
+menustage.add_actor(text5)
+
+pgzrun.go()
