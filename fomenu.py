@@ -18,8 +18,19 @@ m1.set_size(width=screen_width, height=screen_height)
 menustage.add_actor(m1)
 
 # label
+text1: MyButton = MyButton()
+text1.set_x(900)
+text1.set_y(310)
+text1.set_fontsize(50)
+text1.set_color(b=0, g=0, r=0)
+text1.set_rotation(0)
+text1.set_text("bob es a meki")
+text1.on_mouse_down(button=)
+menustage.add_actor(text1)
 
 
+def exit():
+    exit()
 
 def update(dt):
     menustage.update(dt)
