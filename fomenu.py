@@ -24,10 +24,22 @@ text1.set_y(310)
 text1.set_fontsize(50)
 text1.set_color(b=0, g=0, r=0)
 text1.set_rotation(0)
-text1.set_text("bob es a meki")
+text1.set_text("EXIT")
 text1.set_on_mouse_down_listener(exit)
 menustage.add_actor(text1)
 
+text2: MyButton = MyButton()
+text2.set_x(900)
+text2.set_y(310)
+text2.set_fontsize(50)
+text2.set_color(b=0, g=0, r=0)
+text2.set_rotation(0)
+text2.set_text("PLAY")
+text2.set_on_mouse_down_listener(startgame)
+menustage.add_actor(text2)
+
+def startgame():
+    print('play')
 
 def exit():
     exit()
