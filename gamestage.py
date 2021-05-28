@@ -1,5 +1,6 @@
 from n_mygameworld import *
 import tkinter as tk
+from random import randint
 
 class Gamestage(MyStage):
 
@@ -30,5 +31,9 @@ class Gamestage(MyStage):
 
         self.kocsi2 = MyActor(image="bmw_m4_comp.png", pos=(980, 630), anchor=(0, 0))
         self.add_actor(self.kocsi2)
+
+        #self.kocsi1 = MyActor(image="bmw_m4_comp.png")
+        #self.kocsi1.pos = randint(0, 800), randint(-800, 0)
+        #self.add_actor(self.kocsi1)
 
         self.set_on_key_down_listener(self.keydownlistener)
