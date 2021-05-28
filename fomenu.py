@@ -25,6 +25,7 @@ text1.set_fontsize(50)
 text1.set_color(b=0, g=0, r=0)
 text1.set_rotation(0)
 text1.set_text("bob es a meki")
+text1.set_on_mouse_down_listener(exit)
 menustage.add_actor(text1)
 
 
@@ -37,6 +38,9 @@ def update(dt):
 
 def draw():
     menustage.draw()
+
+def on_mouse_down(pos, button):
+    menustage.on_mouse_down(pos, button)
 
 
 pgzrun.go()
