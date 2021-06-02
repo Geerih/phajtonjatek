@@ -2,6 +2,7 @@ from n_mygameworld import *
 import tkinter as tk
 from random import randint
 
+
 class Gamestage(MyStage):
 
     def keydownlistener(self, key, mod, unicode):
@@ -10,9 +11,11 @@ class Gamestage(MyStage):
         if key == keys.SPACE:
             animate(self.kocsi, pos=(self.kocsi.pos[0], self.kocsi.pos[1] + 0), duration=0.1)
         if key == keys.LEFT:
-            animate(self.kocsi, pos=(self.kocsi.pos[0] - 200, self.kocsi.pos[1]), duration=0.1)
+            if self.kocsi.x > 650:
+                animate(self.kocsi, pos=(self.kocsi.pos[0] - 200, self.kocsi.pos[1]), duration=0.1)
         if key == keys.RIGHT:
-            animate(self.kocsi, pos=(self.kocsi.pos[0] + 200, self.kocsi.pos[1]), duration=0.1)
+            if self.kocsi.x < 1050:
+                animate(self.kocsi, pos=(self.kocsi.pos[0] + 200, self.kocsi.pos[1]), duration=0.1)
 
     def keyuplistener(self, key, mod):
         print(key)
@@ -32,8 +35,7 @@ class Gamestage(MyStage):
         self.kocsi = MyActor(image="seat_ibiza_19tdi.png", pos=(980, 630), anchor=(0, 0))
         self.add_actor(self.kocsi)
 
-        self.kocsi2 = MyActor(image="bmw_m4_comp.png")
-        self.kocsi2.pos = randint(670, 860), randint(880, 1070)
+        self.kocsi2 = MyActor(image="bmw_m4_comp.png", pos=(randint(650, 700), 630))
         self.add_actor(self.kocsi2)
 
         #self.kocsi1 = MyActor(image="bmw_m4_comp.png")
