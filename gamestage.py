@@ -28,6 +28,8 @@ class Gamestage(MyStage):
     def __init__(self):
         super().__init__()
 
+        music.play('proba.mp3')
+
         self.alap = MyActor(image="hatter_jatek.png", pos=(0, 0), anchor=(0, 0))
         self.alap.set_size(width=self.screen_width, height=self.screen_height)
         self.add_actor(self.alap)
