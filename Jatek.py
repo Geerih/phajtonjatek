@@ -1,4 +1,7 @@
 from turtle import Screen
+
+from pgzero import screen
+
 from n_mygameworld import *
 from gamestage import Gamestage
 import pgzrun
@@ -12,6 +15,9 @@ def update(dt):
 def on_key_down(key, mod, unicode):
     gamestage.on_key_down(key, mod, unicode)
 
+
+def on_key_up(key, mod):
+    gamestage.on_key_up(key, mod)
 
 def draw():
     screen.clear()
@@ -31,5 +37,6 @@ WIDTH = screen_width
 HEIGHT = screen_height
 print(screen_width)
 print(screen_height)
+
 
 pgzrun.go()
