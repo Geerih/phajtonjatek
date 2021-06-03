@@ -9,7 +9,8 @@ import tkinter as tk
 
 
 def update(dt):
-    gamestage.update(dt)
+    gamestage.update()
+
 
 
 def on_key_down(key, mod, unicode):

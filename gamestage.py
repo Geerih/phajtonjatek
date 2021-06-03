@@ -4,7 +4,6 @@ from random import randint
 
 
 class Gamestage(MyStage):
-
     def keydownlistener(self, key, mod, unicode):
         if key == keys.SPACE:
             animate(self.kocsi, pos=(self.kocsi.pos[0], self.kocsi.pos[1] - 0), duration=0.1)
@@ -19,6 +18,15 @@ class Gamestage(MyStage):
 
     def keyuplistener(self, key, mod):
         print(key)
+
+    def update(self):
+        self.kocsi2.y = self.kocsi2.y+5
+        self.elloko()
+        self.kocsi1.y = self.kocsi1.y+5
+
+    def elloko(self):
+        if self.kocsi.overlaps_with(self.kocsi2):
+            self.kocsi.set_x(self.kocsi.x + 100)
 
     root = tk.Tk()
 
@@ -37,12 +45,11 @@ class Gamestage(MyStage):
         self.kocsi = MyActor(image="seat_ibiza_19tdi.png", pos=(980, 630), anchor=(0, 0))
         self.add_actor(self.kocsi)
 
-        self.kocsi2 = MyActor(image="bmw_m4_comp.png", pos=(randint(650, 700), 630))
+        self.kocsi2 = MyActor(image="bmw_m4_comp.png", pos=(randint(650, 700), -400))
         self.add_actor(self.kocsi2)
 
-        #self.kocsi1 = MyActor(image="bmw_m4_comp.png")
-        #self.kocsi1.pos = randint(0, 800), randint(-800, 0)
-        #self.add_actor(self.kocsi1)
+        self.kocsi1 = MyActor(image="bmw_m4_comp.png", pos=(randint(1000, 1200), -400))
+        self.add_actor(self.kocsi1)
 
         self.set_on_key_down_listener(self.keydownlistener)
         self.set_on_key_up_listener(self.keyuplistener)
