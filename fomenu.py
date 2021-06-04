@@ -14,7 +14,8 @@ screen_height = root.winfo_screenheight()
 WIDTH = screen_width
 HEIGHT = screen_height
 DISPLAYSURF = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-buttonheight: int = screen_height / 100 * 10.648148148148149
+buttonheight: int = 80
+"""screen_height / 100 * 10.648148148148149"""
 
 
 # actors
@@ -52,7 +53,7 @@ def options(pos=0, btn=0):
 text1: MyButton = MyButton()
 text1.set_x(screen_width / 100 * 64.453125)
 text1.set_y(screen_height / 100 * 37.03703703703704)
-text1.set_height(80)
+text1.set_height(buttonheight)
 text1.set_fontsize(50)
 text1.set_color(b=0, g=0, r=0)
 text1.set_rotation(0)
@@ -63,7 +64,7 @@ menustage.add_actor(text1)
 text2: MyButton = MyButton()
 text2.set_x(screen_width / 100 * 64.453125)
 text2.set_y(screen_height / 100 * 50.648148148148145)
-text2.set_height(80)
+text2.set_height(buttonheight)
 text2.set_fontsize(50)
 text2.set_color(b=0, g=0, r=0)
 text2.set_rotation(0)
@@ -74,7 +75,7 @@ menustage.add_actor(text2)
 text3: MyButton = MyButton()
 text3.set_x(screen_width / 100 * 64.453125)
 text3.set_y(screen_height / 100 * 64.35185185185185)
-text3.set_height(80)
+text3.set_height(buttonheight)
 text3.set_fontsize(50)
 text3.set_color(b=0, g=0, r=0)
 text3.set_rotation(0)
@@ -86,7 +87,7 @@ text4: MyButton = MyButton()
 text4.set_x(screen_width / 100 * 64.453125)
 text4.set_y(screen_height / 100 * 78.42592592592592)
 text4.set_width(100)
-text4.set_height(80)
+text4.set_height(buttonheight)
 text4.set_fontsize(50)
 text4.set_color(b=0, g=0, r=0)
 text4.set_rotation(0)
