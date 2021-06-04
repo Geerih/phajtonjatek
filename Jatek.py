@@ -1,6 +1,4 @@
-from turtle import Screen
-
-from pgzero import screen
+#from pgzero import screen
 
 from n_mygameworld import *
 from gamestage import Gamestage
