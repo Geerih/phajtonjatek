@@ -33,14 +33,6 @@ def startgame(pos=0, btn=0):
 
 
 # label
-    text1: MyLabel = MyLabel()
-    text1.set_x(400)
-    text1.set_y(80)
-    text1.set_fontsize(80)
-    text1.set_color(b=255, g=255, r=255)
-    text1.set_rotation(0)
-    text1.set_text("Fejlesztők / Készítők:")
-    controlsstage.add_actor(text1)
 
 # other
 
