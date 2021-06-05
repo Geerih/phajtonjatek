@@ -33,7 +33,7 @@ class Gamestage(MyStage):
 
 
     def update(self):
-        #self.elloko()
+        self.elloko()
         if self.kocsi1.y == self.screen_height:
             self.kocsi1.set_y(-400)
             print("kocsi")
@@ -93,11 +93,11 @@ class Gamestage(MyStage):
         self.alap2.set_size(width=self.screen_width, height=self.screen_height)
         self.add_actor(self.alap2)
 
-        self.alap = MyActor(image="hater_jatek2.png", pos=(0, 0), anchor=(0, 0))
+        self.alap = MyActor(image="hater_jatek1.png", pos=(0, 0), anchor=(0, 0))
         self.alap.set_size(width=self.screen_width, height=self.screen_height)
         self.add_actor(self.alap)
 
-        self.kocsi = MyActor(image="seat_ibiza_19tdi.png", pos=(self.screen_width / 100 * 52.34375, 630), anchor=(0, 0))
+        self.kocsi = MyActor(image="seat_ibiza_19tdi.png", pos=(self.screen_width / 100 * 51.5625, 630), anchor=(0, 0))
         self.add_actor(self.kocsi)
 
         self.kocsi1 = MyActor(image="alfa_romeo_gulia.png", pos=(self.screen_width / 100 * 35.15625, -400))

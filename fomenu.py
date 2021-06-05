@@ -2,7 +2,6 @@ from n_mygameworld import *
 import pgzrun
 import tkinter as tk
 import credit as ct
-import controls as ctls
 
 menustage = MyStage()
 
@@ -39,12 +38,8 @@ def credit(self, pos=0, btn=0):
     print('credit')
     ct.Creditstage()
 
-
-
-
 def options(pos=0, btn=0):
     print('options')
-    ctls.Controlsstage()
 
 
 # label
@@ -102,6 +97,7 @@ def update(dt):
 
 
 def draw():
+    screen.clear()
     menustage.draw()
 
 
