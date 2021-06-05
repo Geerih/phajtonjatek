@@ -7,44 +7,69 @@ from random import randint
 
 
 class Gamestage(MyStage):
+    savvalto = 2
+
     def keydownlistener(self, key, mod, unicode):
         if key == keys.SPACE:
             animate(self.kocsi, pos=(self.kocsi.pos[0], self.kocsi.pos[1] - 0), duration=0.1)
         if key == keys.SPACE:
             animate(self.kocsi, pos=(self.kocsi.pos[0], self.kocsi.pos[1] + 0), duration=0.1)
         if key == keys.LEFT:
-            if self.kocsi.x > 650:
-                animate(self.kocsi, pos=(self.kocsi.pos[0] - 200, self.kocsi.pos[1]), duration=0.1)
+            if self.savvalto < 4:
+                animate(self.kocsi, pos=(self.kocsi.pos[0] - self.screen_width / 100 * 10.15625, self.kocsi.pos[1]), duration=0.1)
+                self.savvalto = self.savvalto + 1
         if key == keys.RIGHT:
-            if self.kocsi.x < 1050:
-                animate(self.kocsi, pos=(self.kocsi.pos[0] + 200, self.kocsi.pos[1]), duration=0.1)
+            if self.savvalto > 1:
+                animate(self.kocsi, pos=(self.kocsi.pos[0] + self.screen_width / 100 * 10.15625, self.kocsi.pos[1]), duration=0.1)
+                self.savvalto = self.savvalto - 1
 
     def keyuplistener(self, key, mod):
         print(key)
 
+    root = tk.Tk()
+
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+
+
     def update(self):
-        self.elloko()
-        for i in range(10):
-            self.kocsi2.y = self.kocsi2.y + 10
+        #self.elloko()
+        if self.kocsi1.y == self.screen_height:
+            self.kocsi1.set_y(-400)
+            print("kocsi")
+        else:
             self.kocsi1.y = self.kocsi1.y + 10
+
+        if self.kocsi2.y == self.screen_height:
+            self.kocsi2.set_y(-700)
+            print("kocsi")
+        else:
+            self.kocsi2.y = self.kocsi2.y + 10
+
+        if self.kocsi3.y == self.screen_height:
+            self.kocsi3.set_y(-1700)
+            print("kocsi")
+        else:
             self.kocsi3.y = self.kocsi3.y + 10
+
+        if self.kocsi4.y == self.screen_height:
+            self.kocsi4.set_y(-1300)
+            print("kocsi")
+        else:
             self.kocsi4.y = self.kocsi4.y + 10
 
         if self.alap.y == self.screen_height + self.screen_height:
-            self.alap.set_y(-self.screen_height)
-            print("atmegy")
+            self.alap.set_y(self.alap3.y - self.screen_height + 20)
         else:
             self.alap.y = self.alap.y + 20
         #szoköz
         if self.alap2.y == self.screen_height + self.screen_height:
-            self.alap2.set_y(-self.screen_height)
-            print("atmegy2")
+            self.alap2.set_y(self.alap.y - self.screen_height)
         else:
             self.alap2.y = self.alap2.y + 20
         #szokoz
         if self.alap3.y == self.screen_height + self.screen_height:
-            self.alap3.set_y(-self.screen_height)
-            print("atmegy3")
+            self.alap3.set_y(self.alap2.y - self.screen_height)
         else:
             self.alap3.y = self.alap3.y + 20
 
@@ -52,10 +77,7 @@ class Gamestage(MyStage):
         if self.kocsi.overlaps_with(self.kocsi2):
             self.kocsi.set_x(self.kocsi.x + 100)
 
-    root = tk.Tk()
 
-    screen_width = root.winfo_screenwidth()
-    screen_height = root.winfo_screenheight()
 
     def __init__(self):
         super().__init__()
@@ -63,32 +85,32 @@ class Gamestage(MyStage):
 
         music.play('proba.mp3')
 
-        self.alap3 = MyActor(image="hatter_jatek.png", pos=(0, -self.screen_height - self.screen_height), anchor=(0, 0))
+        self.alap3 = MyActor(image="hater_jatek3.png", pos=(0, -self.screen_height - self.screen_height), anchor=(0, 0))
         self.alap3.set_size(width=self.screen_width, height=self.screen_height)
         self.add_actor(self.alap3)
 
-        self.alap2 = MyActor(image="hatter_jatek.png", pos=(0, -self.screen_height), anchor=(0, 0))
+        self.alap2 = MyActor(image="hater_jatek2.png", pos=(0, -self.screen_height), anchor=(0, 0))
         self.alap2.set_size(width=self.screen_width, height=self.screen_height)
         self.add_actor(self.alap2)
 
-        self.alap = MyActor(image="hatter_jatek.png", pos=(0, 0), anchor=(0, 0))
+        self.alap = MyActor(image="hater_jatek2.png", pos=(0, 0), anchor=(0, 0))
         self.alap.set_size(width=self.screen_width, height=self.screen_height)
         self.add_actor(self.alap)
 
-        self.kocsi = MyActor(image="seat_ibiza_19tdi.png", pos=(980, 630), anchor=(0, 0))
+        self.kocsi = MyActor(image="seat_ibiza_19tdi.png", pos=(self.screen_width / 100 * 52.34375, 630), anchor=(0, 0))
         self.add_actor(self.kocsi)
 
-        self.kocsi2 = MyActor(image="bmw_m4_comp.png", pos=(randint(560, 760), -700))
-        self.add_actor(self.kocsi2)
-
-        self.kocsi1 = MyActor(image="alfa_romeo_gulia.png", pos=(randint(760, 960), -400))
+        self.kocsi1 = MyActor(image="alfa_romeo_gulia.png", pos=(self.screen_width / 100 * 35.15625, -400))
         self.add_actor(self.kocsi1)
 
-        self.kocsi3 = MyActor(image="car.png", pos=(randint(960, 1160), -1700))
+        self.kocsi2 = MyActor(image="bmw_m4_comp.png", pos=(self.screen_width / 100 * 45.3125, -700))
+        self.add_actor(self.kocsi2)
+
+        self.kocsi3 = MyActor(image="car.png", pos=(self.screen_width / 100 * 54.6875, -1700))
         self.kocsi3.set_size(width=250, height=400)
         self.add_actor(self.kocsi3)
 
-        self.kocsi4 = MyActor(image="bmw_m4_comp.png", pos=(randint(1160, 1360), -1300))
+        self.kocsi4 = MyActor(image="bmw_m4_comp.png", pos=(self.screen_width / 100 * 66.40625, -1300))
         self.add_actor(self.kocsi4)
 
         self.set_on_key_down_listener(self.keydownlistener)
