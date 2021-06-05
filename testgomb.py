@@ -5,9 +5,9 @@ class Game(object):
     def main(self, screen):
 
         #load first sprite to image for blit"
-        image = pygame.image.load('hatter_jatek.png')
-        image2 = pygame.image.load('hatter_jatek.png')
-        image3 = pygame.image.load('hatter_jatek.png')
+        #image = pygame.image.load('')
+        #image2 = pygame.image.load('')
+        #image3 = pygame.image.load('')
         while 1:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
