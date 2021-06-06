@@ -1,21 +1,20 @@
-from n_mygameworld import *
-import pgzrun
-import pygame
+from tkinter import *
+from tkinter.ttk import *
 
-WIDTH  = 800
-HEIGHT = 600
+master = Tk()
+master.geometry("200x200")
 
-menustage = MyStage()
+def openNewWindow():
+    newWindow = Toplevel(master)
+    newWindow.title("Kilépés")
+    newWindow.geometry("200x200")
+    Label(newWindow, text ="Ez az új ablak").pack()
 
-bg = MyActor(image="kezdokep.png", pos=(0, 0), anchor=(0, 0))
-bg.set_width(30)
-menustage.add_actor(bg)
+label = Label(master, text ="Ez a fő ablak")
 
-def update(dt):
-    menustage.update(dt)
+label.pack(pady = 10)
 
-def draw():
-    menustage.draw()
+btn = Button(master, text ="Kattints ide a kilépéshez", command = exit)
+btn.pack(pady = 10)
 
-
-pgzrun.go()
+mainloop()

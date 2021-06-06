@@ -16,7 +16,7 @@ DISPLAYSURF = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
 # actors
 
-m1 = MyActor(image="controls.jpg", pos=(0, 0), anchor=(0, 0))
+m1 = MyActor(image="controls.png", pos=(0, 0), anchor=(0, 0))
 m1.set_size(width=screen_width, height=screen_height)
 controlsstage.add_actor(m1)
 
