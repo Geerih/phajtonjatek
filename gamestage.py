@@ -28,6 +28,8 @@ class Gamestage(MyStage):
                 self.savvalto = self.savvalto - 1
                 self.score = self.score + 1
                 print("A pontjaid: " + str(self.score))
+        if key == keys.ESCAPE:
+            exit()
 
 
     def keyuplistener(self, key, mod):
@@ -40,7 +42,6 @@ class Gamestage(MyStage):
 
 
     def update(self):
-        screen.draw.text("A pontjaid: " + str(self.score), (700, 500), color="black")
         self.elloko()
         if self.kocsi1.y == self.screen_height:
             self.kocsi1.set_y(-400)
