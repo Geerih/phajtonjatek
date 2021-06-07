@@ -27,6 +27,8 @@ class Gamestage(MyStage):
                 self.savvalto = self.savvalto - 1
                 self.score = self.score + 1
                 print("A pontjaid: " + str(self.score))
+        if key == keys.ESCAPE:
+            exit()
 
 
     def keyuplistener(self, key, mod):
