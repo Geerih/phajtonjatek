@@ -42,49 +42,56 @@ class Gamestage(MyStage):
 
     def update(self):
         self.elloko()
-        self.text1.set_text(str(self.score))
-        if self.kocsi1.y == self.screen_height:
+        self.text1.set_text("score: " + str(self.score))
+        #kocsi
+        if self.kocsi1.y == self.screen_height + self.screen_height // 100 * 32:
             self.kocsi1.set_y(-400)
             print("kocsi")
         else:
             self.kocsi1.y = self.kocsi1.y + 10
 
-        if self.kocsi2.y == self.screen_height:
+        if self.kocsi2.y == self.screen_height + self.screen_height // 100 * 32:
             self.kocsi2.set_y(-700)
             print("kocsi")
         else:
             self.kocsi2.y = self.kocsi2.y + 10
 
-        if self.kocsi3.y == self.screen_height:
+        if self.kocsi3.y == self.screen_height + self.screen_height // 100 * 32:
             self.kocsi3.set_y(-1700)
             print("kocsi")
         else:
             self.kocsi3.y = self.kocsi3.y + 10
 
-        if self.kocsi4.y == self.screen_height:
+        if self.kocsi4.y == self.screen_height + self.screen_height // 100 * 32:
             self.kocsi4.set_y(-1300)
             print("kocsi")
         else:
             self.kocsi4.y = self.kocsi4.y + 10
-
+        #bg
         if self.alap.y == self.screen_height + self.screen_height:
             self.alap.set_y(self.alap3.y - self.screen_height + 20)
         else:
             self.alap.y = self.alap.y + 20
-        #szoköz
+
         if self.alap2.y == self.screen_height + self.screen_height:
             self.alap2.set_y(self.alap.y - self.screen_height)
         else:
             self.alap2.y = self.alap2.y + 20
-        #szokoz
+
         if self.alap3.y == self.screen_height + self.screen_height:
             self.alap3.set_y(self.alap2.y - self.screen_height)
         else:
             self.alap3.y = self.alap3.y + 20
 
     def elloko(self):
+        if self.kocsi.overlaps_with(self.kocsi1):
+            self.score = self.score - self.score
         if self.kocsi.overlaps_with(self.kocsi2):
-            self.kocsi.set_x(self.kocsi.x + 200)
+            self.score = self.score - self.score
+        if self.kocsi.overlaps_with(self.kocsi3):
+            self.score = self.score - self.score
+        if self.kocsi.overlaps_with(self.kocsi4):
+            self.score = self.score - self.score
 
 
     def __init__(self):
@@ -109,16 +116,19 @@ class Gamestage(MyStage):
         self.add_actor(self.kocsi)
 
         self.kocsi1 = MyActor(image="alfa_romeo_gulia.png", pos=(self.screen_width / 100 * 35.15625, -400))
+        self.kocsi1.set_size(width=self.screen_width // 100 * 9, height=self.screen_height // 100 * 32)
         self.add_actor(self.kocsi1)
 
         self.kocsi2 = MyActor(image="bmw_m4_comp.png", pos=(self.screen_width / 100 * 45.3125, -700))
+        self.kocsi2.set_size(width=self.screen_width // 100 * 9, height=self.screen_height // 100 * 32)
         self.add_actor(self.kocsi2)
 
         self.kocsi3 = MyActor(image="honda_civic.png", pos=(self.screen_width / 100 * 54.6875, -1700))
-        self.kocsi3.set_size(width=175, height=350)
+        self.kocsi3.set_size(width=self.screen_width // 100 * 9, height=self.screen_height // 100 * 32)
         self.add_actor(self.kocsi3)
 
         self.kocsi4 = MyActor(image="bmw_m4_comp.png", pos=(self.screen_width / 100 * 66.40625, -1300))
+        self.kocsi4.set_size(width=self.screen_width // 100 * 9, height=self.screen_height // 100 * 32)
         self.add_actor(self.kocsi4)
 
         self.text1: MyButton = MyButton()
