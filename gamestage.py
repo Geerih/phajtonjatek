@@ -9,6 +9,8 @@ from random import randint
 class Gamestage(MyStage):
     savvalto = 2
 
+    score = 0
+
     def keydownlistener(self, key, mod, unicode):
         if key == keys.SPACE:
             animate(self.kocsi, pos=(self.kocsi.pos[0], self.kocsi.pos[1] - 0), duration=0.1)
@@ -18,10 +20,15 @@ class Gamestage(MyStage):
             if self.savvalto < 4:
                 animate(self.kocsi, pos=(self.kocsi.pos[0] - self.screen_width / 100 * 10.15625, self.kocsi.pos[1]), duration=0.1)
                 self.savvalto = self.savvalto + 1
+                self.score = self.score + 1
+                print("A pontjaid: " + str(self.score))
         if key == keys.RIGHT:
             if self.savvalto > 1:
                 animate(self.kocsi, pos=(self.kocsi.pos[0] + self.screen_width / 100 * 10.15625, self.kocsi.pos[1]), duration=0.1)
                 self.savvalto = self.savvalto - 1
+                self.score = self.score + 1
+                print("A pontjaid: " + str(self.score))
+
 
     def keyuplistener(self, key, mod):
         print(key)
@@ -33,6 +40,7 @@ class Gamestage(MyStage):
 
 
     def update(self):
+        screen.draw.text("A pontjaid: " + str(self.score), (700, 500), color="black")
         self.elloko()
         if self.kocsi1.y == self.screen_height:
             self.kocsi1.set_y(-400)
@@ -75,8 +83,7 @@ class Gamestage(MyStage):
 
     def elloko(self):
         if self.kocsi.overlaps_with(self.kocsi2):
-            self.kocsi.set_x(self.kocsi.x + 100)
-
+            self.kocsi.set_x(self.kocsi.x + 200)
 
 
     def __init__(self):
@@ -106,8 +113,8 @@ class Gamestage(MyStage):
         self.kocsi2 = MyActor(image="bmw_m4_comp.png", pos=(self.screen_width / 100 * 45.3125, -700))
         self.add_actor(self.kocsi2)
 
-        self.kocsi3 = MyActor(image="car.png", pos=(self.screen_width / 100 * 54.6875, -1700))
-        self.kocsi3.set_size(width=250, height=400)
+        self.kocsi3 = MyActor(image="honda_civic.png", pos=(self.screen_width / 100 * 54.6875, -1700))
+        self.kocsi3.set_size(width=175, height=350)
         self.add_actor(self.kocsi3)
 
         self.kocsi4 = MyActor(image="bmw_m4_comp.png", pos=(self.screen_width / 100 * 66.40625, -1300))
