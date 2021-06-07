@@ -8,7 +8,6 @@ from random import randint
 
 class Gamestage(MyStage):
     savvalto = 2
-
     score = 0
 
     def keydownlistener(self, key, mod, unicode):
@@ -40,8 +39,8 @@ class Gamestage(MyStage):
 
 
     def update(self):
-        screen.draw.text("A pontjaid: " + str(self.score), (700, 500), color="black")
         self.elloko()
+        self.text1.set_text(str(self.score))
         if self.kocsi1.y == self.screen_height:
             self.kocsi1.set_y(-400)
             print("kocsi")
@@ -119,6 +118,15 @@ class Gamestage(MyStage):
 
         self.kocsi4 = MyActor(image="bmw_m4_comp.png", pos=(self.screen_width / 100 * 66.40625, -1300))
         self.add_actor(self.kocsi4)
+
+        self.text1: MyButton = MyButton()
+        self.text1.set_x(0)
+        self.text1.set_y(0)
+        self.text1.set_size(height=self.screen_height // 100 * 1, width=self.screen_width // 100 * 1)
+        self.text1.set_fontsize(50)
+        self.text1.set_color(b=0, g=0, r=0)
+        self.text1.set_rotation(0)
+        self.add_actor(self.text1)
 
         self.set_on_key_down_listener(self.keydownlistener)
         self.set_on_key_up_listener(self.keyuplistener)
