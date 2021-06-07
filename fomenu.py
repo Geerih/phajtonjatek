@@ -1,7 +1,6 @@
 from n_mygameworld import *
 import pgzrun
 import tkinter as tk
-import credit as ct
 
 menustage = MyStage()
 
@@ -36,13 +35,14 @@ def startgame(pos=0, btn=0):
 
 def credit(self, pos=0, btn=0):
     print('credit')
-    ct.Creditstage()
 
 def options(pos=0, btn=0):
     print('options')
 
 
 # label
+
+
 
 """ ** 10.648148148148149"""
 text1: MyButton = MyButton()
