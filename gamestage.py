@@ -90,7 +90,7 @@ class Gamestage(MyStage):
         super().__init__()
 
 
-        music.play('proba.mp3')
+        music.play('in_the_end.mp3')
 
         self.alap3 = MyActor(image="hater_jatek3.png", pos=(0, -self.screen_height - self.screen_height), anchor=(0, 0))
         self.alap3.set_size(width=self.screen_width, height=self.screen_height)
