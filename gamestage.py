@@ -16,7 +16,8 @@ class Gamestage(MyStage):
         if key == keys.SPACE:
             animate(self.kocsi, pos=(self.kocsi.pos[0], self.kocsi.pos[1] + 0), duration=0.1)
         if key == keys.R:
-            self.text2.set_text("GET RICKROLLED LOL")
+            self.text2.set_y(0)
+            self.text2.set_x(0)
             self.kocsi.set_image("ricky.png")
             music.play("rickroll.mp3")
         if key == keys.LEFT:
@@ -145,10 +146,11 @@ class Gamestage(MyStage):
         self.add_actor(self.text1)
 
         self.text2: MyButton = MyButton()
-        self.text2.set_x(0)
-        self.text2.set_y(0)
+        self.text2.set_x(3000)
+        self.text2.set_y(3000)
         self.text2.set_size(height=self.screen_height, width=self.screen_width)
         self.text2.set_fontsize(500)
+        self.text2.set_text("GET RICKROLLED LOL")
         self.text2.set_color(b=0, g=0, r=0)
         self.text2.set_rotation(0)
         self.add_actor(self.text1)
