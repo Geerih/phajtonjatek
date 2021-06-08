@@ -20,6 +20,7 @@ class Gamestage(MyStage):
             self.text2.set_x(0)
             self.kocsi.set_image("ricky.png")
             music.play("rickroll.mp3")
+            music.set_volume(100)
         if key == keys.LEFT:
             if self.savvalto < 4:
                 animate(self.kocsi, pos=(self.kocsi.pos[0] - self.screen_width / 100 * 10.15625, self.kocsi.pos[1]), duration=0.1)
