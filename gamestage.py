@@ -145,9 +145,9 @@ class Gamestage(MyStage):
         self.add_actor(self.text1)
 
         self.text2: MyButton = MyButton()
-        self.text2.set_x(self.screen_width)
-        self.text2.set_y(self.screen_height)
-        self.text2.set_size(height=self.screen_height // 100 * 1, width=self.screen_width // 100 * 1)
+        self.text2.set_x(0)
+        self.text2.set_y(0)
+        self.text2.set_size(height=self.screen_height, width=self.screen_width)
         self.text2.set_fontsize(50)
         self.text2.set_color(b=0, g=0, r=0)
         self.text2.set_rotation(0)
