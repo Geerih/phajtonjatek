@@ -148,7 +148,7 @@ class Gamestage(MyStage):
         self.text2.set_x(0)
         self.text2.set_y(0)
         self.text2.set_size(height=self.screen_height, width=self.screen_width)
-        self.text2.set_fontsize(50)
+        self.text2.set_fontsize(500)
         self.text2.set_color(b=0, g=0, r=0)
         self.text2.set_rotation(0)
         self.add_actor(self.text1)
