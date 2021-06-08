@@ -15,6 +15,8 @@ class Gamestage(MyStage):
             animate(self.kocsi, pos=(self.kocsi.pos[0], self.kocsi.pos[1] - 0), duration=0.1)
         if key == keys.SPACE:
             animate(self.kocsi, pos=(self.kocsi.pos[0], self.kocsi.pos[1] + 0), duration=0.1)
+        if key == keys.R:
+            self.kocsi.set_image("ricky.png")
         if key == keys.LEFT:
             if self.savvalto < 4:
                 animate(self.kocsi, pos=(self.kocsi.pos[0] - self.screen_width / 100 * 10.15625, self.kocsi.pos[1]), duration=0.1)
